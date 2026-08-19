@@ -1,0 +1,58 @@
+<aside id="secondary" class="widget-area sidebar-1-area mt-5 card">
+  <div class="widget">
+    <form role="search" method="get" action="https://duckduckgo.com/">
+      <div class="input-group">
+        <input type="hidden" name="sites" value="hampshireswimming.com">
+        <input type="text" class="form-control" placeholder="Search &hellip;" name="q">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="submit">Go</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="widget border-bottom">
+    <div class="alert alert-secondary" role="alert">
+      <a href="mailto:welfareofficer@hampshireswimming.org" target="_blank" rel="noreferrer noopener">Email Welfare Officer</a>
+    </div>
+  </div>
+
+  <div class="widget">
+    <h4 class="widget-title">Recent Posts</h4>
+    <ul>
+    {%- for post in collections.posts | reverse | slice(0, 5) %}
+      {%- if post.url !== page.url %}
+      <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
+      {%- endif %}
+    {%- endfor %}
+    </ul>
+  </div>
+
+  <div class="widget">
+    <h4 class="widget-title">Archives</h4>
+    <ul>
+    {%- for month in collections.archives %}
+      <li><a href="/{{ month.key }}/">{{ month.label }}</a></li>
+    {%- endfor %}
+    </ul>
+  </div>
+
+  <div class="widget">
+    <h4 class="widget-title">Categories</h4>
+    <ul>
+    {%- for cat in collections.categories %}
+      <li><a href="/category/{{ cat.name | slugify }}/">{{ cat.name | capitalize }}</a></li>
+    {%- endfor %}
+    </ul>
+  </div>
+
+  <div class="widget">
+    <h4 class="widget-title">Meta</h4>
+    <ul>
+      <li><a href="/admin/">Log in</a></li>
+      <li><a href="/feed.xml">Entries feed</a></li>
+      <li><a href="/feed.xml">Comments feed</a></li>
+      <li><a href="https://wordpress.org/">WordPress.org</a></li>
+    </ul>
+  </div>
+</aside>

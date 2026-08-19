@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+---
+<div class="container">
+  <div class="row">
+    {% if layoutStyle === "full-width" or sidebar === false %}
+    <div class="col-12">
+    {% else %}
+    <div class="col-md-8 wp-bp-content-width">
+    {% endif %}
+      <div id="primary" class="content-area">
+        <main id="main" class="site-main">
+          <article class="card mt-5">
+            {% if coverImage %}
+            <img src="{{ coverImage }}" alt="{{ title }}" class="card-img-top">
+            {% endif %}
+            <div class="card-body">
+              <header class="entry-header">
+                <h1 class="entry-title h2">{{ title }}</h1>
+              </header>
+              <div class="entry-content">
+                {{ content | safe }}
+              </div>
+            </div>
+          </article>
+        </main>
+      </div>
+    </div>
+    {% if layoutStyle !== "full-width" and sidebar !== false %}
+    <div class="col-md-4 wp-bp-sidebar-width">
+      {% include "sidebar.njk" %}
+    </div>
+    {% endif %}
+  </div>
+</div>

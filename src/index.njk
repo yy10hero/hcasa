@@ -1,0 +1,80 @@
+---
+layout: layouts/base.njk
+title: HCASA
+pagination:
+  data: collections.posts
+  size: 10
+  alias: posts
+  reverse: true
+---
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div id="primary" class="content-area">
+        <main id="main" class="site-main">
+          {%- for post in posts %}
+          <article class="card mt-5">
+            <div class="card-body">
+              <header class="entry-header">
+                <h2 class="entry-title card-title h3"><a href="{{ post.url }}" rel="bookmark" class="text-dark">{{ post.data.title }}</a></h2>
+                <div class="entry-meta text-muted">
+                  <span class="posted-on">Posted on <a href="{{ post.url }}" rel="bookmark">{{ post.date | date("MMMM d, yyyy") }}</a></span>
+                  {% if post.data.author %}
+                  <span class="byline"> by <span class="author vcard"><a class="url fn n" href="/author/{{ post.data.author | slugify }}/">{{ post.data.author }}</a></span></span>
+                  {% endif %}
+                </div>
+              </header>
+              {% if post.data.coverImage %}
+              <a class="post-thumbnail mt-3" href="{{ post.url }}" aria-hidden="true">
+                <img src="{{ post.data.coverImage }}" alt="{{ post.data.title }}" class="img-fluid">
+              </a>
+              {% endif %}
+              <div class="entry-summary mt-3">
+                <p>{{ post.templateContent | excerpt }}</p>
+                <div class="">
+                  <a href="{{ post.url }}" class="btn btn-primary btn-sm">Continue Reading <small class="oi oi-chevron-right ml-1"></small></a>
+                </div>
+              </div>
+            </div>
+            <footer class="entry-footer card-footer text-muted">
+              {% if post.data.categories %}
+              <span class="cat-links">
+                {% for cat in post.data.categories %}
+                <span class="badge badge-light badge-pill"><a href="/category/{{ cat | slugify }}/" rel="category tag">{{ cat | capitalize }}</a></span>
+                {% endfor %}
+              </span>
+              {% endif %}
+              {% set filteredTags = post.data.tags | displayTags %}
+              {% if filteredTags | length %}
+              <span class="tags-links">
+                {% for tag in filteredTags %}
+                <span class="badge badge-light badge-pill text-muted">#<a href="/tag/{{ tag | slugify }}/" rel="tag">{{ tag }}</a></span>
+                {% endfor %}
+              </span>
+              {% endif %}
+              <span class="comments-link"><a href="{{ post.url }}#respond">Leave a Comment</a></span>
+            </footer>
+          </article>
+          {%- endfor %}
+          {% if pagination.href.previous or pagination.href.next %}
+          <nav class="mt-4">
+            <ul class="pagination justify-content-center">
+              {% if pagination.href.previous %}
+              <li class="page-item"><a class="page-link" href="{{ pagination.href.previous }}">&laquo; Previous</a></li>
+              {% endif %}
+              {% if pagination.href.next %}
+              <li class="page-item"><a class="page-link" href="{{ pagination.href.next }}">Next &raquo;</a></li>
+              {% endif %}
+            </ul>
+          </nav>
+          {% endif %}
+        </main>
+      </div>
+    </div>
+    <div class="col-md-4">
+      {% include "sidebar.njk" %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+backend:
+  name: proxy
+  proxy_url: http://localhost:8081/api/v1
+  branch: main
+site_url: https://hampshireswimming.com
+display_url: https://hampshireswimming.com
+logo: /assets/img/logo.png
+
+media_folder: src/assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    label_singular: "Page"
+    folder: "src/pages"
+    create: true
+    slug: "{{slug}}"
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL path (e.g. 'about' for /about/)" }
+      - { label: "Author", name: "author", widget: "string", default: "hcasa_19" }
+      - { label: "Cover Image", name: "coverImage", widget: "image", required: false, media_folder: "src/assets/img/pages", public_folder: "/assets/img/pages" }
+      - { label: "Permalink", name: "permalink", widget: "string", required: false, hint: "Leave blank for default /slug/. Set to 'false' to hide the page." }
+      - { label: "Hide from site", name: "eleventyExcludeFromCollections", widget: "boolean", default: false, required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "posts"
+    label: "Posts"
+    label_singular: "Post"
+    folder: "src/posts"
+    create: true
+    slug: "{{slug}}"
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL path (e.g. 'welcome-to-the-site' for /posts/welcome-to-the-site/)" }
+      - { label: "Author", name: "author", widget: "string", default: "hcasa_19" }
+      - { label: "Categories", name: "categories", widget: "list", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Cover Image", name: "coverImage", widget: "image", required: false, media_folder: "src/assets/img/posts", public_folder: "/assets/img/posts" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false, hint: "Optional one-liner shown on list pages" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+      - { label: "Body", name: "body", widget: "markdown" }

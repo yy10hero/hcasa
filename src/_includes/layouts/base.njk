@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} - Hampshire County ASA</title>
+  <meta name="description" content="{% if metaDescription %}{{ metaDescription }}{% else %}Hampshire County ASA{% endif %}">
+  <meta property="og:title" content="{{ title }} - Hampshire County ASA">
+  <meta property="og:type" content="{% if type === 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="https://hampshireswimming.com{{ page.url }}">
+  <meta property="og:description" content="{% if metaDescription %}{{ metaDescription }}{% else %}Hampshire County ASA{% endif %}">
+  <meta property="og:image" content="{% if ogImage %}{{ ogImage }}{% else %}/assets/img/logo.png{% endif %}">
+  <link rel="canonical" href="https://hampshireswimming.com{{ page.url }}">
+  <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" onerror="this.onerror=null;this.href='/assets/css/bootstrap.css'">
+  <link rel="stylesheet" href="/assets/css/open-iconic-bootstrap.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<div id="page" class="site">
+  <header id="masthead" class="site-header">
+    <nav id="site-navigation" class="main-navigation navbar navbar-expand-lg navbar-dark bg-dark">
+      <a href="/" class="custom-logo-link" rel="home">
+        <img src="/assets/img/logo.png" alt="HCASA" class="custom-logo" style="height:60px;width:auto;">
+      </a>
+      <div class="site-branding-text">
+        <h1 class="site-title h3 mb-0"><a href="/" rel="home" class="navbar-brand mb-0">HCASA</a></h1>
+        <p class="site-description">Hampshire County ASA</p>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primary-menu-wrap" aria-controls="primary-menu-wrap" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="primary-menu-wrap">
+        <ul id="primary-menu" class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/about/" data-toggle="dropdown">About</a>
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link" href="/child-protection-welfare/">Child Protection & Welfare</a></li>
+              <li class="nav-item"><a class="nav-link" href="/hampshire-and-channel-island-asa-a-commitment-to-diversity-and-inclusion/">Hampshire and Channel Island ASA – a commitment to Diversity and Inclusion</a></li>
+              <li class="nav-item"><a class="nav-link" href="/annual-council-meeting/">Annual Council Meeting</a></li>
+              <li class="nav-item"><a class="nav-link" href="/clubs/">Clubs</a></li>
+              <li class="nav-item"><a class="nav-link" href="/committee/">Committee</a></li>
+              <li class="nav-item"><a class="nav-link" href="/constitution/">Constitution</a></li>
+              <li class="nav-item"><a class="nav-link" href="/minutes/">Minutes of Meetings</a></li>
+              <li class="nav-item"><a class="nav-link" href="/past-presidents/">Past Presidents</a></li>
+              <li class="nav-item"><a class="nav-link" href="/travel-and-subsistence-expenses-policy-officials-and-volunteers/">Expenses Policy</a></li>
+              <li class="nav-item"><a class="nav-link" href="/trophies/">Trophies</a></li>
+              <li class="nav-item"><a class="nav-link" href="/county-event-photos/">County Event Photos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/speed-swimming/" data-toggle="dropdown">Speed Swimming</a>
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link" href="/about-speed-swimming/">About Speed Swimming</a></li>
+              <li class="nav-item"><a class="nav-link" href="/county-swimming-competitions/">County Swimming Competitions</a></li>
+              <li class="nav-item"><a class="nav-link" href="/records/">County Records</a></li>
+              <li class="nav-item"><a class="nav-link" href="/competition-conditions/">Competition Conditions</a></li>
+              <li class="nav-item"><a class="nav-link" href="/swimming-trophies/">Swimming Trophies</a></li>
+              <li class="nav-item"><a class="nav-link" href="/swimming-photos/">Swimming Photos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/water-polo/">Water Polo</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/diving/" data-toggle="dropdown">Diving</a>
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link" href="/about-2/">About</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/masters/" data-toggle="dropdown">Masters</a>
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link" href="/masters/">Masters Swimming</a></li>
+              <li class="nav-item"><a class="nav-link" href="/masters-2023/">Hampshire Masters County Championships 26</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/disability-swimming/">Disability Swimming</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/artistic/" data-toggle="dropdown">Artistic Swimming</a>
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link" href="/artistic/about/">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="/artistic/rules/">Rules</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/open-water/" data-toggle="dropdown">Open Water</a>
+            <ul class="dropdown-menu">
+              <li class="nav-item"><a class="nav-link" href="/open-water/">Open Water</a></li>
+              <li class="nav-item"><a class="nav-link" href="/hampshire-county-open-water-championships-2026/">Hampshire Championships 2026</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/officials/">Officials</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact-us/">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="/helpful-links/">Helpful Links</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div id="content" class="site-content">
+    {{ content | safe }}
+  </div>
+
+  <footer id="colophon" class="site-footer text-muted">
+    <div class="container py-3 text-center">
+      <div class="site-info">
+        Powered by Eleventy
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/bootstrap.js"><\/script>');</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous" onerror="this.onerror=null;this.src='/assets/js/bootstrap.js'"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var path = window.location.pathname;
+  document.querySelectorAll('#primary-menu > .nav-item > .nav-link').forEach(function(link) {
+    if (link.getAttribute('href') === path) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>

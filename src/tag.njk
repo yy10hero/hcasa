@@ -1,0 +1,46 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.tagsList
+  size: 1
+  alias: tag
+permalink: /tag/{{ tag.name | slugify }}/
+eleventyComputed:
+  title: "{{ tag.name }}"
+---
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div id="primary" class="content-area">
+        <main id="main" class="site-main">
+          <h1 class="mb-4">Tag: {{ tag.name }}</h1>
+          {%- for post in tag.posts | reverse %}
+          <article class="card mt-5">
+            <div class="card-body">
+              <header class="entry-header">
+                <h2 class="entry-title card-title h3"><a href="{{ post.url }}" class="text-dark">{{ post.data.title }}</a></h2>
+                <div class="entry-meta text-muted">
+                  <span class="posted-on">{{ post.date | date("MMMM d, yyyy") }}</span>
+                </div>
+              </header>
+              {%- if post.data.coverImage %}
+              <div class="post-thumbnail mt-3">
+                <img src="{{ post.data.coverImage }}" alt="{{ post.data.title }}" class="img-fluid">
+              </div>
+              {%- endif %}
+              <div class="entry-summary mt-3">
+                <p>{{ post.templateContent | excerpt }}</p>
+                <a href="{{ post.url }}" class="btn btn-primary btn-sm">Continue Reading <small class="oi oi-chevron-right ml-1"></small></a>
+              </div>
+            </div>
+          </article>
+          {%- endfor %}
+        </main>
+      </div>
+    </div>
+    <div class="col-md-4">
+      {% include "sidebar.njk" %}
+    </div>
+  </div>
+</div>

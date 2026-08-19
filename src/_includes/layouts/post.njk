@@ -1,0 +1,77 @@
+---
+layout: layouts/base.njk
+---
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 wp-bp-content-width">
+      <div id="primary" class="content-area">
+        <main id="main" class="site-main">
+          <article class="card mt-5">
+            <div class="card-body">
+              <header class="entry-header">
+                <h1 class="entry-title card-title h2">{{ title }}</h1>
+                <div class="entry-meta text-muted">
+                  <span class="posted-on">Posted on <a href="{{ page.url }}" rel="bookmark">{{ date | date("MMMM d, yyyy") }}</a></span>
+                  {% if author %}
+                  <span class="byline"> by <span class="author vcard"><a class="url fn n" href="/author/{{ author | slugify }}/">{{ author }}</a></span></span>
+                  {% endif %}
+                </div>
+              </header>
+              {% if coverImage %}
+              <a class="post-thumbnail mt-3" href="{{ page.url }}" aria-hidden="true">
+                <img src="{{ coverImage }}" alt="{{ title }}" class="img-fluid">
+              </a>
+              {% endif %}
+              <div class="entry-content mt-3">
+                {{ content | safe }}
+              </div>
+            </div>
+            <footer class="entry-footer card-footer text-muted">
+              {% if categories %}
+              <span class="cat-links">
+                {% for cat in categories %}
+                <span class="badge badge-light badge-pill"><a href="/category/{{ cat | slugify }}/" rel="category tag">{{ cat | capitalize }}</a></span>
+                {% endfor %}
+              </span>
+              {% endif %}
+              {% set filteredTags = tags | displayTags %}
+              {% if filteredTags | length %}
+              <span class="tags-links">
+                {% for tag in filteredTags %}
+                <span class="badge badge-light badge-pill text-muted">#<a href="/tag/{{ tag | slugify }}/" rel="tag">{{ tag }}</a></span>
+                {% endfor %}
+              </span>
+              {% endif %}
+              <span class="comments-link"><a href="{{ page.url }}#respond">Leave a Comment</a></span>
+            </footer>
+          </article>
+
+          {%- set prevPost = collections.posts | previousPost(page.url) %}
+          {%- set nextPost = collections.posts | nextPost(page.url) %}
+          {% if prevPost or nextPost %}
+          <nav class="post-navigation card mt-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-6 text-left">
+                  {% if nextPost %}
+                  <a href="{{ nextPost.url }}" class="text-muted">&laquo; {{ nextPost.data.title }}</a>
+                  {% endif %}
+                </div>
+                <div class="col-6 text-right">
+                  {% if prevPost %}
+                  <a href="{{ prevPost.url }}" class="text-muted">{{ prevPost.data.title }} &raquo;</a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </nav>
+          {% endif %}
+
+        </main>
+      </div>
+    </div>
+    <div class="col-md-4 wp-bp-sidebar-width">
+      {% include "sidebar.njk" %}
+    </div>
+  </div>
+</div>

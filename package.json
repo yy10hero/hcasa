@@ -1,0 +1,30 @@
+{
+  "name": "hcasa",
+  "version": "1.0.0",
+  "description": "Static site for Hampshire & Channel Islands ASA (HCASA), built with Eleventy from a WordPress export.",
+  "main": "index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "start": "eleventy --serve"
+  },
+  "keywords": [
+    "eleventy",
+    "static-site",
+    "hcasa",
+    "swimming"
+  ],
+  "author": "HCASA",
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  },
+  "devDependencies": {
+    "@11ty/eleventy-plugin-rss": "^3.0.0",
+    "decap-server": "^3.10.0"
+  }
+}
