@@ -9,6 +9,7 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
+    "build-ghpages": "npx @11ty/eleventy --pathprefix=/hcasa/",
     "start": "eleventy --serve"
   },
   "keywords": [
