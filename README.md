@@ -425,5 +425,4 @@ Before you call it done:
 
 ---
 
-*Not sure about a step? Ask the maintainer before you save. It is always cheaper
-than fixing a live page.*
+*If you're confused about anything, Ask the maintainer. He's always happy to help with any concerns or queries.
