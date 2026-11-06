@@ -35,7 +35,7 @@ That is the whole system. Everything below is the detail.
 ## HOW TO MAKE THE PAGE!!
 
 1. Go to the repository on GitHub.
-2. Click **Add file → Create new file**.
+2. Top right of the UI: Click **Add file → Create new file**.
 3. Type the path: `src/pages/summer-camp/index.md` (use your own name).
 4. Paste in the template below and change the title and text.
 5. Click **Commit changes…**.
